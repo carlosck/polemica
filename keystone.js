@@ -10,8 +10,8 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'cms',
-	'brand': 'cms',
+	'name': 'PI',
+	'brand': 'polin',
 
 	'sass': 'public',
 	'static': 'public',
