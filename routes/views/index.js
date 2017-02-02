@@ -14,6 +14,7 @@ exports = module.exports = function (req, res) {
 	locals.data = {
 		posts: [],
 		categories: [],
+		columnadeldia: {}
 	};
 
 	// Load all categories
@@ -53,7 +54,25 @@ exports = module.exports = function (req, res) {
 			next();
 		}
 	});
+	// Load columna del dia
+	view.on('init', function (next) {
 
+		
+		var q = keystone.list('Post').model.find()
+			.where('categories','5891190f9095f7e2092d2066')
+			.where('state','published')
+			.sort('-publishedDate')
+			.limit(1)
+			.populate('author categories');
+		
+		q.exec(function (err, results) {
+			// console.log('______del dia_________');
+			// console.log(results);
+			// console.log('______+++++++_________');
+			locals.data.columnadeldia = results;
+			next(err);
+		});
+	});
 	// Load the posts
 	view.on('init', function (next) {
 
