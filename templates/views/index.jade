@@ -2,9 +2,9 @@ extends ../layouts/default
 
 mixin main_post(_post)
 	- post = _post[0]
-		// - console.log("**********************")
+		// - console.log("*********sdf*************")
 			- console.log(post)
-			- console.log("**********************")
+			- console.log("**********sdf************")
 	a.post(href='/blog/post/' + post.slug,data-ks-editable=editable(user, { list: 'Post', id: post._id }))
 		h3 Nota del día
 		p.lead.text-muted Posted 
